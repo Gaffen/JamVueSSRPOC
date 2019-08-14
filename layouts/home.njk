@@ -1,0 +1,11 @@
+{% extends "./base.njk" %}
+
+{% block body %}
+{% vue { component:"HelloWorld" } %}
+{% vue { component:"HelloWorld", props: { message: "This is a test" } } %}
+{% vue { component:"HelloWorld", props: { message: "Of server rendered Vue components" } } %}
+{% vue { component:"ListComp", props: { startlist: [{message:"Render Vue in Nunjucks"}, {message:"???"}, {message:"Profit!"}] } } %}
+<section id="content" role="main" class="content-wrapper">
+  {{content|safe}}
+</section>
+{% endblock %}

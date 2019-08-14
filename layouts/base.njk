@@ -1,0 +1,20 @@
+{% include "partials/header.njk" %}
+  </head>
+  <body>
+    <div class="hidden">
+      {% include "partials/sprite.svg" %}
+    </div>
+		<header>
+      <h1>Your brand-spanking new Kindling website!</h1>
+		</header>
+    {% block body %}
+      {{ content | safe }}
+    {% endblock %}
+    {% block footer %}
+			<footer class="sitefooter">
+				{% include 'partials/footer.njk' %}
+			</footer>
+      <script async="true" src="/assets/{{manifest.main.js}}"></script>
+		{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,22 @@
+html {
+  font-size: $bodysize;
+  font-family: $body;
+  color: $dark;
+}
+
+body {
+  background: $bg;
+  font-weight: 300;
+  line-height: $bodyline;
+  text-align: center;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}

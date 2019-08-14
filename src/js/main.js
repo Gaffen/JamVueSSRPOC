@@ -15,6 +15,6 @@ Array.prototype.forEach.call(document.querySelectorAll(".ListComp"), function(
   elem
 ) {
   new Vue({
-    render: h => h(ListComp, { props: { message: elem.dataset.list } })
+    render: h => h(ListComp, { props: { startlist: elem.dataset.startlist } })
   }).$mount(elem);
 });

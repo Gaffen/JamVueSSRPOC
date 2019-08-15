@@ -7,7 +7,6 @@ module.exports = {
   ],
   extensions: [".json", ".js"],
   alias: {
-    modernizr$: path.resolve(__dirname, "..", "src", "js", "modernizr.js"),
     styles: path.resolve(__dirname, "..", "src", "scss")
   }
 };

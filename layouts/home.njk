@@ -1,9 +1,11 @@
 {% extends "./base.njk" %}
 
 {% block body %}
+<h2>Simple Vue Component (Why would you do this?)</h2>
 {% vue { component:"HelloWorld" } %}
 {% vue { component:"HelloWorld", props: { message: "This is a test" } } %}
 {% vue { component:"HelloWorld", props: { message: "Of server rendered Vue components" } } %}
+<h2>Todo List</h2>
 {% vue { component:"ListComp"} %}
 {% vue { component:"ListComp", props: { startlist: [{message:"Render Vue in Nunjucks"}, {message:"???"}, {message:"Profit!"}] } } %}
 <section id="content" role="main" class="content-wrapper">

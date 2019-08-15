@@ -57,11 +57,6 @@ module.exports = function() {
       options: {}
     },
     {
-      test: /\.jsx?$/,
-      exclude: /(node_modules|bower_components)/,
-      use: "babel-loader"
-    },
-    {
       test: /\.css$/,
       exclude: /node_modules/,
       use: cssLoaders
@@ -70,16 +65,6 @@ module.exports = function() {
       test: /\.scss$/,
       exclude: /node_modules/,
       use: sassLoaders
-    },
-    {
-      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-      use: {
-        loader: "svg-inline-loader",
-        options: {
-          removingTagAttrs: ["fill", "stroke"]
-        }
-      },
-      exclude: /src\/fonts/
     },
     // Loader for Vue files
     {

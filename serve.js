@@ -130,7 +130,7 @@ const build_site = debounce(
         //   `webpack --env ${process.env.NODE_ENV} --watch`
         // );
         // console.log("Webpack Finished");
-        yield run_build_command(`npm run spritesheet`);
+        // yield run_build_command(`npm run spritesheet`);
       }
 
       if (build_site) {

@@ -6,10 +6,7 @@
 
 <script>
 export default {
-  props: { message: { type: String, default: "Hello World!" } },
-  mounted: function() {
-    console.log(this.message);
-  }
+  props: { message: { type: String, default: "Hello World!" } }
 };
 </script>
 

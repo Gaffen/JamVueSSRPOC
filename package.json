@@ -7,7 +7,8 @@
     "build": "webpack --env production && eleventy",
     "compile": "npx eleventy",
     "start": "npm run devserve",
-    "devserve": "NODE_ENV=development npx babel-node --presets @babel/preset-env ./serve.js"
+    "devserve": "NODE_ENV=development npx babel-node --presets @babel/preset-env ./serve.js",
+    "spritesheet": "node ./svgsprite.js"
   },
   "author": "Matthew Gaffen",
   "license": "ISC",
@@ -37,6 +38,7 @@
     "sass-loader": "^7.2.0",
     "strip-ansi": "^5.2.0",
     "style-loader": "^1.0.0",
+    "svgstore": "^3.0.0-2",
     "tree-kill": "^1.2.1",
     "url-loader": "^2.1.0",
     "vue-loader": "^15.7.1",

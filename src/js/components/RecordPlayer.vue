@@ -50,8 +50,7 @@ export default {
   },
   mounted: function() {
     this.audioElement = document.createElement("audio");
-    this.audioElement.crossOrigin = 'anonymous';
-    console.log(this.record);
+    this.audioElement.crossOrigin = "anonymous";
     this.audioElement.src = this.record;
     let disc = this.$refs.disc;
 

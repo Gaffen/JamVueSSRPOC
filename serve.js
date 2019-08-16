@@ -4,6 +4,7 @@ import debounce from "lodash.debounce";
 import compress from "compression";
 import config from "./webpack.config.js";
 import webpack from "webpack";
+import fs from "fs";
 
 // Set debug variables
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
@@ -165,6 +166,17 @@ compiler.watch({}, err => {
 });
 
 compiler.hooks.afterCompile.tap("eleventy", params => {
+  try {
+    if (
+      !fs.existsSync(
+        path.resolve(__dirname, "layouts", "partials", "sprite.svg")
+      )
+    ) {
+      require(path.resolve(__dirname, "svgsprite.js"));
+    }
+  } catch (err) {
+    console.error(err);
+  }
   build_site();
   sync.reload();
 });

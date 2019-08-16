@@ -8,6 +8,9 @@
 <h2>Todo List</h2>
 {% vue { component:"ListComp"} %}
 {% vue { component:"ListComp", props: { startlist: [{message:"Render Vue in Nunjucks"}, {message:"???"}, {message:"Profit!"}] } } %}
+{% vue { component:"RecordPlayer", props: { record: "https://hearsepileup.rip/music/last_time.mp3" } } %}
+{% vue { component:"RecordPlayer", props: { record: "https://hearsepileup.rip/music/generation_y.mp3" } } %}
+{% vue { component:"RecordPlayer", props: { record: "https://hearsepileup.rip/music/pretty_shiny_things.mp3" } } %}
 <section id="content" role="main" class="content-wrapper">
   {{content|safe}}
 </section>

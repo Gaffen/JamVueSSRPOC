@@ -15,6 +15,9 @@
       v-bind:height="canvasSize"
       v-on:mousedown="beginScrubbing"
     />
+    <a v-if="!mounted" class="download" v-bind:href="recordUrl"
+      ><span>Click to play</span></a
+    >
     <!-- <p class="devinfo">Scrubbing: {{ scrubbing }}</p> -->
   </div>
 </template>
@@ -45,10 +48,12 @@ export default {
       eqBarWidth: 0,
       eqBarRotation: 0,
       eqSampleSize: 2,
-      recordUrl: this.record
+      recordUrl: this.record,
+      mounted: false
     };
   },
   mounted: function() {
+    this.mounted = true;
     this.audioElement = document.createElement("audio");
     this.audioElement.crossOrigin = "anonymous";
     this.audioElement.src = this.record;
@@ -108,11 +113,10 @@ export default {
       this.drawUI();
     });
 
-    window.addEventListener('changetrack', this.changeTrack);
+    window.addEventListener("changetrack", this.changeTrack);
   },
   methods: {
-    changeTrack: function(e){
-      console.log();
+    changeTrack: function(e) {
       if (e.detail._uid !== this._uid && this.playing) {
         this.togglePlay();
       }
@@ -469,5 +473,24 @@ export default {
   width: 100%;
   display: block;
   text-align: center;
+}
+
+.download {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #adadad;
+  text-decoration: none;
+  text-transform: uppercase;
+  span {
+    position: relative;
+    top: 30px;
+  }
 }
 </style>

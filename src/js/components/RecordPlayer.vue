@@ -359,6 +359,7 @@ export default {
       });
     },
     togglePlay: function() {
+      console.log(this);
       if (!this.playing) {
         this.audioElement.play();
         this.playing = !this.playing;
@@ -421,6 +422,7 @@ export default {
   position: relative;
   width: 160px;
   height: 160px;
+  margin: auto;
 }
 
 .disc {

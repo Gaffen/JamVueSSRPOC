@@ -16,6 +16,10 @@ h1 {
   color: $red;
 }
 
+a {
+  color: currentColor;
+}
+
 .site {
   display: flex;
   min-height: 100vh;

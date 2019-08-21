@@ -2,36 +2,34 @@
    Colours
    ========================================================================== */
 
-$black: #000000;
-$white: #ffffff;
+$black: #1c1c1e;
+$white: #e9eade;
 $link-active: #7393a7;
-$dark: #4b4b4b;
+$dark: #67696e;
 
+$dark: #575656;
 $med-dark-grey: #b3b2b2;
-$med-grey: #464646;
-$med-grey-1: #d2d2d2;
-$light-grey-1: #adadad;
+$med-grey: #adadad;
 $light-grey: #ebebeb;
-$white-grey-1: #f1f1f1;
-$white-grey: #f8f8f8;
+$white-grey: #f5f5f5;
 
-$pipa-navy: #030f1f;
-$pipa-teal: #00aab7;
+$red: #d63939;
+$orange: #ed8d44;
+$blue: #545eea;
 
-$bg: $white-grey;
+$bg: $black;
 
 /* ==========================================================================
    Typography
    ========================================================================== */
 
-$small: 12px;
-$medium: 18px;
+$small: 16px;
+$medium: 14px;
 
-$bodysize: $medium;
-$bodyline: 1.222;
+$bodysize: $small;
+$bodyline: 1.5em;
 
-$body: "Roboto", sans-serif;
-$title: "Roboto Slab", serif;
+$body: "Work Sans", "Arial", sans-serif;
 
 /* ==========================================================================
    Media Queries

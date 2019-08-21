@@ -1,7 +1,7 @@
 html {
   font-size: $bodysize;
   font-family: $body;
-  color: $dark;
+  color: $white;
 }
 
 body {
@@ -9,6 +9,11 @@ body {
   font-weight: 300;
   line-height: $bodyline;
   text-align: center;
+}
+
+h1 {
+  line-height: 1.4em;
+  color: $red;
 }
 
 .site {

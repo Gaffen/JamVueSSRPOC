@@ -4,17 +4,19 @@
     <div class="hidden">
       {% include "./partials/sprite.svg" %}
     </div>
-		<header>
-      <h1>SSR Rendering in Nunjucks proof of concept</h1>
-		</header>
-    {% block body %}
-      {{ content | safe }}
-    {% endblock %}
-    {% block footer %}
-			<footer class="sitefooter">
-				{% include 'partials/footer.njk' %}
-			</footer>
-      <script async="true" src="/assets/{{manifest.main.js}}"></script>
-		{% endblock %}
+    <div class="gridwrap">
+  		<header>
+        <h1>SSR Rendering in Nunjucks proof of concept</h1>
+  		</header>
+      {% block body %}
+        {{ content | safe }}
+      {% endblock %}
+      {% block footer %}
+  			<footer class="sitefooter col col--1">
+  				{% include 'partials/footer.njk' %}
+  			</footer>
+        <script async="true" src="/assets/{{manifest.main.js}}"></script>
+  		{% endblock %}
+    </div>
   </body>
 </html>

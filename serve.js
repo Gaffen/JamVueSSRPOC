@@ -78,7 +78,7 @@ function startServer() {
           ],
           fn: (event, file) => {
             debug(`File changed: ${file}`);
-            // build_site(false);
+            build_site(false);
           }
         }
         // {
@@ -177,6 +177,7 @@ compiler.hooks.afterCompile.tap("eleventy", params => {
   } catch (err) {
     console.error(err);
   }
-  build_site();
   sync.reload();
 });
+
+build_site();

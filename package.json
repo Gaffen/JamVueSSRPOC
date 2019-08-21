@@ -7,7 +7,7 @@
     "build": "webpack --env production && eleventy",
     "compile": "npx eleventy",
     "start": "npm run devserve",
-    "devserve": "NODE_ENV=development npx babel-node --presets @babel/preset-env ./serve.js",
+    "devserve": "webpack --env development && NODE_ENV=development npx babel-node --presets @babel/preset-env ./serve.js",
     "spritesheet": "node ./svgsprite.js"
   },
   "author": "Matthew Gaffen",

@@ -2,8 +2,10 @@
   <div class="ListComp" v-bind:data-startlist="startlist">
     <ol>
       <li v-for="(item, index) in list">
-        <p>{{ item.message }}</p>
-        <button v-on:click="removeItem(index)">&times;</button>
+        <div class="itemtext">
+          <p>{{ item.message }}</p>
+          <button v-on:click="removeItem(index)">&times;</button>
+        </div>
       </li>
     </ol>
     <form v-on:submit.prevent>
@@ -42,5 +44,27 @@ export default {
 <style lang="scss" scoped>
 ol {
   border: 1px solid grey;
+  width: 100%;
+  padding-right: 20px;
+}
+li {
+  text-align: left;
+  button {
+    width: 20px;
+    height: 20px;
+    padding: 2px 0 0 0px;
+    border: 0;
+    border-radius: 50%;
+  }
+}
+.itemtext {
+  display: flex;
+  align-items: center;
+}
+p {
+  flex: 1;
+}
+button:focus {
+  outline: 0;
 }
 </style>

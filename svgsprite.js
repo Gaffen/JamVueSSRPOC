@@ -30,4 +30,4 @@ const genSVG = () => {
   });
 };
 
-return genSVG();
+export default genSVG();

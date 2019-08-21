@@ -92,6 +92,8 @@ export default {
         this.eqBarRotation = segmentWidth * (Math.PI / 180);
 
         this.createBarData();
+
+        window.dispatchEvent(new CustomEvent("changetrack", { detail: this }));
       } else {
         // let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         this.source = this.audioCtx.createMediaStreamSource(
@@ -105,8 +107,16 @@ export default {
       this.initialised = false;
       this.drawUI();
     });
+
+    window.addEventListener('changetrack', this.changeTrack);
   },
   methods: {
+    changeTrack: function(e){
+      console.log();
+      if (e.detail._uid !== this._uid && this.playing) {
+        this.togglePlay();
+      }
+    },
     createBarData: function() {
       this.drawBar(this.eqBarCache, "rgb(0, 0, 0)");
       this.drawBar(this.eqBarCacheWhite, "rgb(255, 255, 255)");
@@ -353,6 +363,7 @@ export default {
         this.audioElement.play();
         this.playing = !this.playing;
         this.draw();
+        window.dispatchEvent(new CustomEvent("changetrack", { detail: this }));
       } else {
         this.audioElement.pause();
         this.playing = !this.playing;

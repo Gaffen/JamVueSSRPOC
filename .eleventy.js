@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs");
-const manifest = require("./data/manifest.json");
 
 const Nunjucks = require("nunjucks");
 

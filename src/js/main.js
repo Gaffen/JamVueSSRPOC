@@ -19,10 +19,11 @@ Array.prototype.forEach.call(document.querySelectorAll(".ListComp"), function(
   }).$mount(elem);
 });
 
-Array.prototype.forEach.call(document.querySelectorAll(".RecordPlayer"), function(
-  elem
-) {
-  new Vue({
-    render: h => h(RecordPlayer, { props: { record: elem.dataset.record } })
-  }).$mount(elem);
-});
+Array.prototype.forEach.call(
+  document.querySelectorAll(".RecordPlayer"),
+  function(elem) {
+    new Vue({
+      render: h => h(RecordPlayer, { props: { record: elem.dataset.record } })
+    }).$mount(elem);
+  }
+);

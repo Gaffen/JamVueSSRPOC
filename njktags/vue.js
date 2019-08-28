@@ -6,7 +6,21 @@ const TemplateCompiler = require("vue-template-compiler");
 const VueServerRenderer = require("vue-server-renderer");
 const requireFromString = require("require-from-string");
 const babel = require("@babel/core");
-const manifest = require("../data/manifest.json");
+
+let manifest = {};
+
+fs.access(
+  path.resolve(__dirname, "..", "data", "manifest.json"),
+  fs.f_OK,
+  err => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    manifest = require("../data/manifest.json");
+    return;
+  }
+);
 
 module.exports = function(nunjucksEngine, settings) {
   this.tags = ["vue"];
@@ -50,7 +64,7 @@ module.exports = function(nunjucksEngine, settings) {
 
     moduleScript.template = parsedComponent.template.content;
 
-    if (manifest.vue[args.component]) {
+    if ("vue" in manifest && manifest.vue[args.component]) {
       moduleScript._scopeId = `data-v-${manifest.vue[args.component]}`;
     }
 

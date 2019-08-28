@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="RecordPlayer" v-bind:data-record="recordUrl">
+  <div class="RecordPlayer">
     <button class="toggle" v-on:click="togglePlay">
       <svg v-if="playing === false">
         <use :xlink:href="playIcon" />

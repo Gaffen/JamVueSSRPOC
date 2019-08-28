@@ -1,5 +1,5 @@
 <template lang="html">
-  <p class="HelloWorld" v-bind:data-message="message">
+  <p class="HelloWorld">
     {{ message }}
   </p>
 </template>

@@ -7,7 +7,8 @@ Array.prototype.forEach.call(document.querySelectorAll(".HelloWorld"), function(
   elem
 ) {
   new Vue({
-    render: h => h(HelloWorld, { props: { message: elem.dataset.message } })
+    render: h =>
+      h(HelloWorld, { props: JSON.parse(elem.nextElementSibling.innerHTML) })
   }).$mount(elem);
 });
 
@@ -15,7 +16,8 @@ Array.prototype.forEach.call(document.querySelectorAll(".ListComp"), function(
   elem
 ) {
   new Vue({
-    render: h => h(ListComp, { props: { startlist: elem.dataset.startlist } })
+    render: h =>
+      h(ListComp, { props: JSON.parse(elem.nextElementSibling.innerHTML) })
   }).$mount(elem);
 });
 
@@ -23,7 +25,10 @@ Array.prototype.forEach.call(
   document.querySelectorAll(".RecordPlayer"),
   function(elem) {
     new Vue({
-      render: h => h(RecordPlayer, { props: { record: elem.dataset.record } })
+      render: h =>
+        h(RecordPlayer, {
+          props: JSON.parse(elem.nextElementSibling.innerHTML)
+        })
     }).$mount(elem);
   }
 );

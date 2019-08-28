@@ -58,10 +58,6 @@ module.exports = function(nunjucksEngine, settings) {
       }).code
     ).default;
 
-    const renderer = VueServerRenderer.createRenderer({
-      template: `<!--vue-ssr-outlet-->`
-    });
-
     moduleScript.template = parsedComponent.template.content;
 
     if ("vue" in manifest && manifest.vue[args.component]) {
@@ -83,18 +79,29 @@ module.exports = function(nunjucksEngine, settings) {
       });
     }
 
-    renderer.renderToString(
-      new Vue({
-        props: keys,
-        template: `<${args.component}${props}></${args.component}>`
-      }),
-      (err, result) => {
-        if (!err) {
-          callback(null, new nunjucksEngine.runtime.SafeString(result));
-        } else {
-          callback(null, err);
-        }
+    let vueInstance = new Vue({
+      props: keys,
+      template: `<${args.component}${props}></${args.component}>`
+    });
+
+    const renderer = VueServerRenderer.createRenderer({
+      template: `<!--vue-ssr-outlet-->`
+    });
+
+    renderer.renderToString(vueInstance, (err, result) => {
+      if (!err) {
+        const component = vueInstance.$children[0],
+          props = component.$vnode.componentOptions.propsData;
+        let componentState = `<script type="application/json">${JSON.stringify(
+          props
+        )}</script>`;
+        callback(
+          null,
+          new nunjucksEngine.runtime.SafeString(result + componentState)
+        );
+      } else {
+        callback(null, err);
       }
-    );
+    });
   };
 };

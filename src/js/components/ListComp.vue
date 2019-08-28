@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="ListComp" v-bind:data-startlist="startlist">
+  <div class="ListComp">
     <ol>
       <li v-for="(item, index) in list">
         <div class="itemtext">

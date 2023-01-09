@@ -13,7 +13,7 @@
   "author": "Matthew Gaffen",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^0.8.3",
+    "@11ty/eleventy": "^1.0.2",
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
